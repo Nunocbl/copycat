@@ -1,0 +1,83 @@
+<div class="container">
+    <div class="row">
+        <div class="col col-sm-11 offset-sm-1 col-md-6 offset-md-3 col-lg-6 offset-lg-3 p-0 mt-5">
+
+            <div class="card p-5">
+
+
+                <h1 class="text-center mb-5"><b> Novo Fabricante </b></h1>
+
+                <form #f="ngForm" (ngSubmit)="submitBrand(f.value)">
+
+                    <div class="row gap-1">
+                        <div class="col-3 text-end">
+                            <label for="">Nome</label>
+                        </div>
+                        <div class="col-8">
+                            <input class=" form-control" type="text" name="name" ngModel>
+                        </div>
+                        <div class="col-3 text-end">
+                            <label for="">URL Link</label>
+                        </div>
+                        <div class="col-8">
+                            <input class=" form-control" type="text" name="URL" ngModel>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div>
+                            <button type="submit" class="btn btn-dark float-end mt-2">Submeter</button>
+                        </div>
+                    </div>
+                </form>
+
+                <form #fEdit="ngForm" (ngSubmit)="editBrand(fEdit.value)">
+                    <h3 class="text-center mb-5"><b>Editar/remover fabricante</b></h3>
+
+                    <div class="row gap-1">
+                        <div class="col-3 text-center">
+                            <label class="mb-4 text-center" for="categoria">Fabricantes existentes</label>
+
+                        </div>
+                        <div class="col-8">
+                            <select class="form-select mb-3" aria-label="Selector de marcas" name="brand"
+                                [(ngModel)]="selectedBrand" >
+                                <option *ngFor="let option of manufacturers; let i = index" [value]="i">{{option.name}}</option>
+
+                            </select>
+
+
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="d-flex justify-content-around">
+                            <button class="btn btn-danger mr-5" (click)="enableEdit=!enableEdit">Editar</button>
+                            <button class="btn btn-danger mr-5" (click)="removeBrand(selectedBrand)">Remover</button>
+                        </div>
+
+                    </div>
+
+                    <div *ngIf="enableEdit" class="row gap-1">
+                        <div class="col-3 text-end">
+                            <label for="">Novo Nome</label>
+                        </div>
+                        <div class="col-8">
+                            <input class=" form-control" type="text" name="newname" ngModel>
+                        </div>
+                        <div class="col-3 text-end">
+                            <label for="">Novo URL Link</label>
+                        </div>
+                        <div class="col-8">
+                            <input class=" form-control" type="text" name="newURL" ngModel>
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-dark float-end">Submeter</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

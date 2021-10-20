@@ -1,0 +1,80 @@
+:host {
+    display: flex;
+    justify-content: center;
+    min-height: 100%;
+
+    & > div {
+        display: grid;
+        flex: 1;
+        max-width: 1200px;
+        min-height: 100%;
+        padding: 2rem;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 2rem;
+        grid-template-areas:
+            "prodtitle"
+            "galeria "
+            "caracteristics-or-multiprod"
+            "prodinfo"
+            "caracteristicas"
+            "relacionado";
+        outline: 1px solid red;
+    }
+}
+
+.galeriadeimagens {
+    grid-area: galeria;
+    outline: 1px solid blue;
+    color: blue;
+}
+
+.caracteristicas {
+    grid-area: caracteristicas;
+
+    outline: 1px solid green;
+    color: green;
+}
+.relacionado {
+    grid-area: relacionado;
+    outline: 1px solid orange;
+    color: orange;
+}
+
+.prodtitle {
+    grid-area: prodtitle;
+    outline: 1px solid pink;
+    color: pink;
+}
+.caracteristics-or-multiprod {
+    grid-area: caracteristics-or-multiprod;
+    outline: 1px solid lime;
+    color: lime;
+}
+
+.prodinfo {
+    grid-area: prodinfo;
+    outline: 1px solid purple;
+    color: purple;
+}
+
+.spacer {
+    height: 500px;
+}
+
+@media screen and (min-width: 768px) {
+    :host > div {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 4rem repeat(4, auto);
+        grid-template-areas:
+            "galeria prodtitle"
+            "galeria caracteristics-or-multiprod"
+            "caracteristicas prodinfo"
+            "relacionado prodinfo"
+            "relacionado .";
+    }
+
+    .prodtitle {
+        max-height: 4rem;
+    }
+}
